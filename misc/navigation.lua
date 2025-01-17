@@ -2,7 +2,7 @@ local x, y, z = 0, 0, 0
 local direction = "+x"
 
 local function turnLeft(turtle)
-    if turtle.forward() == false then
+    if turtle.turnLeft() == false then
         return false
     end
 
@@ -19,7 +19,7 @@ local function turnLeft(turtle)
 end
 
 local function turnRight(turtle)
-    if turtle.forward() == false then
+    if turtle.turnRight() == false then
         return false
     end
 
