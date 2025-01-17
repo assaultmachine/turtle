@@ -1,4 +1,8 @@
-local x, y, z = 0, 0, 0
+local coordinates = {
+    ["x"] = 0,
+    ["y"] = 0,
+    ["z"] = 0
+}
 local direction = "+x"
 
 local function turnLeft(turtle)
@@ -40,10 +44,10 @@ local function forward(turtle)
         return false
     end
 
-    if direction == "+x" then x = x + 1
-    elseif direction == "-x" then x = x - 1
-    elseif direction == "+y" then y = y + 1
-    else y = y -1 end
+    if direction == "+x" then coordinates["x"] = coordinates["x"] + 1
+    elseif direction == "-x" then coordinates["x"] = coordinates["x"] - 1
+    elseif direction == "+y" then coordinates["y"] = coordinates["y"] + 1
+    else coordinates["y"] = coordinates["y"] -1 end
 
     return true
 end
@@ -54,12 +58,12 @@ local function back(turtle)
     end
 
     if direction == "+x" then 
-        x = x - 1 
+        coordinates["x"] = coordinates["x"] - 1 
     elseif direction == "-x" then
-        x = x + 1
+        coordinates["x"] = coordinates["x"] + 1
     elseif direction == "+y" then
-        y = y - 1
-    else y = y + 1
+        coordinates["y"] = coordinates["y"] - 1
+    else coordinates["y"] = coordinates["y"] + 1
     end
 
     return true
@@ -71,12 +75,12 @@ local function right(turtle)
     end
 
     if direction == "+x" then
-        y = y + 1
+        coordinates["y"] = coordinates["y"] + 1
     elseif direction == "-x" then
-        y = y - 1
+        coordinates["y"] = coordinates["y"] - 1
     elseif direction == "+y" then
-        x = x - 1
-    else x = x + 1
+        coordinates["x"] = coordinates["x"] - 1
+    else coordinates["x"] = coordinates["x"] + 1
     end
 
     return true
@@ -88,12 +92,12 @@ local function left(turtle)
     end
     
     if direction == "+x" then
-        y = y - 1
+        coordinates["y"] = coordinates["y"] - 1
     elseif direction == "-x" then
-        y = y + 1
+        coordinates["y"] = coordinates["y"] + 1
     elseif direction == "+y" then
-        x = x + 1
-    else x = x - 1
+        coordinates["x"] = coordinates["x"] + 1
+    else coordinates["x"] = coordinates["x"] - 1
     end
 
     return true
@@ -104,7 +108,7 @@ local function up(turtle)
         return false
     end
 
-    z = z + 1
+    coordinates["z"] = coordinates["z"] + 1
     return true
 end
 
@@ -113,11 +117,11 @@ local function down(turtle)
         return false
     end
 
-    z = z - 1
+    coordinates["z"] = coordinates["z"] - 1
     return true
 end
 
 return { turnLeft = turnLeft, turnRight = turnRight,
         forward = forward, back = back,
         right = right, left = left,
-        up = up, down = down, x = x, y = y, z = z }
+        up = up, down = down, coordinates = coordinates }
