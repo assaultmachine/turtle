@@ -1,8 +1,9 @@
 local nav = require("navigation")
 
-local function isOre(success, data)
-    if not success then return false end
-    return data.tags and data.tags["forge:ores"]
+local function isOre(data)
+    if not data or not data.name then
+        return false end
+    return data.name == "minecraft:raw_copper"
 end
 
 local function dropJunk()
@@ -57,8 +58,7 @@ local function mineLayer(width, length)
             end
             forward = not forward
         end
-        
-        dropJunk()
+       dropJunk() 
     end
 end
 
