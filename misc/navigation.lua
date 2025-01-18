@@ -158,6 +158,10 @@ local function returnOnZero(turtle)
             up(turtle)
         end
     end
+
+    while direction ~= "+x" do
+        turnLeft(turtle)
+    end
 end
 
 return { turnLeft = turnLeft, turnRight = turnRight,
