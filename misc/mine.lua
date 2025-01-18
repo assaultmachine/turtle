@@ -18,7 +18,7 @@ local function dropJunk()
 end
 
 
-local function mineLayer(width, length)
+local function mineLayer(length, width)
     local forward = true
     for x = 1, width do
         for y = 1, length - 1 do
@@ -62,9 +62,9 @@ local function mineLayer(width, length)
     end
 end
 
-local function mine(width, length, depth)
+local function mine(length, width, depth)
     for layer = 1, depth do
-        mineLayer(width, length)
+        mineLayer(length, width)
         
         nav.returnOnZero(turtle)
         
