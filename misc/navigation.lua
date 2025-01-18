@@ -121,6 +121,45 @@ local function down(turtle)
     return true
 end
 
+--- returns turtle to zero cords
+local function returnOnZero(turtle)
+    if coordinates.y > 0 then
+        while direction ~= "-y" do
+            turnLeft(turtle)
+        end
+    elseif coordinates.y < 0 then
+        while direction ~= "+y" do
+            turnLeft(turtle)
+        end
+    end
+    while coordinates.y ~= 0 do
+        forward(turtle)
+    end
+
+    if coordinates.x > 0 then
+        while direction ~= "-x" do
+            turnLeft(turtle)
+        end
+    elseif coordinates.x < 0 then
+        while direction ~= "+x" do
+            turnLeft(turtle)
+        end
+    end
+    while coordinates.x ~= 0 do
+        forward(turtle)
+    end
+
+    if coordinates.z > 0 then
+        while coordinates.z ~= 0 do
+            down(turtle)
+        end
+    else
+        while coordinates.z ~= 0 do
+            up(turtle)
+        end
+    end
+end
+
 return { turnLeft = turnLeft, turnRight = turnRight,
         forward = forward, back = back,
         right = right, left = left,
