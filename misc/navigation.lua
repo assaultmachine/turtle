@@ -163,4 +163,5 @@ end
 return { turnLeft = turnLeft, turnRight = turnRight,
         forward = forward, back = back,
         right = right, left = left,
-        up = up, down = down, coordinates = coordinates }
+        up = up, down = down, coordinates = coordinates,
+        returnOnZero = returnOnZero }
