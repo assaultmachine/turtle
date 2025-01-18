@@ -66,3 +66,10 @@ local function mine(width, length, depth)
     
     nav.returnOnZero(turtle)
 end
+
+return {
+    mine = mine,
+    mineLayer = mineLayer,
+    isOre = isOre,
+    dropJunk = dropJunk
+}
