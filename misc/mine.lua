@@ -35,13 +35,23 @@ local function mineLayer(width, length)
             end
         end
         
+        if turtle.detectDown() then
+            turtle.digDown()
+        end
+        
         if x < width then
             if forward then
                 nav.turnRight(turtle)
+                if turtle.detectDown() then
+                    turtle.digDown()
+                end
                 nav.forward(turtle)
                 nav.turnRight(turtle)
             else
                 nav.turnLeft(turtle)
+                if turtle.detectDown() then
+                    turtle.digDown()
+                end
                 nav.forward(turtle)
                 nav.turnLeft(turtle)
             end
